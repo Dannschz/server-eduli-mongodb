@@ -1,8 +1,11 @@
 const express = require('express');
 
 const app = express();
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 const routes = require('./routes/index');
-require('dotenv').config();
+
 require('./database/database.js');
 
 app.use(express.json());
